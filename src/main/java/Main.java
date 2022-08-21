@@ -34,7 +34,9 @@ public class Main {
                 new TypeReference<List<Cats>>() {}
         );
 
-        cats.forEach(System.out::println);
+        cats.stream()
+                .filter(cat -> cat.getUpvotes() != null)
+                .forEach(System.out::println);
 
         httpClien.close();
     }
